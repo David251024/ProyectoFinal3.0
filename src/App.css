@@ -1,3 +1,4 @@
+/* --- ESTILOS GLOBAL DE LA APLICACIÓN --- */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,6 +6,7 @@
   text-align: center;
 }
 
+/* --- ESTILOS DE VITE/REACT ORIGINALES --- */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -17,26 +19,185 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
+/* ... (otros estilos de animación que ya tenías) */
 
 .read-the-docs {
   color: #888;
+}
+
+.vite-react-section {
+    padding-top: 50px;
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+    width: 100%;
+}
+
+
+/* ================================================================= */
+/* === ESTILOS PARA LAS TARJETAS === */
+/* ================================================================= */
+
+/* Contenedor Grid para las 6 tarjetas */
+.grid-container {
+  max-width: 1200px;
+  margin: 0 auto 40px auto; /* Centrado */
+  padding: 20px;
+  /* PROPIEDADES CLAVE para ordenar las tarjetas */
+  display: grid; 
+  /* Diseño Responsivo: 1, 2 o 3 columnas */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Encabezado del catálogo */
+.cards-header {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.catalog-title {
+    font-size: 1.5rem; /* 2xl */
+    font-weight: 600; /* semibold */
+    text-align: left;
+    margin-bottom: 1rem;
+    color: #333;
+    padding-left: 20px;
+}
+
+
+/* Estilo para cada tarjeta individual */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #e5e7eb; /* Borde suave */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* --- SECCIÓN DE IMAGEN --- */
+.card-image-wrapper {
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 12rem; /* h-48 */
+    object-fit: cover;
+}
+
+.card-genre-tag {
+    position: absolute;
+    top: 0.5rem; 
+    left: 0.5rem; 
+    background: rgba(0, 0, 0, 0.6); 
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem; 
+    font-size: 0.875rem; 
+}
+
+/* --- SECCIÓN DEL CUERPO --- */
+.card-body {
+    padding: 1rem;
+    text-align: left;
+}
+
+.card-title {
+    font-size: 1.125rem; 
+    font-weight: 600; 
+    margin-bottom: 0.5rem;
+}
+
+.card-specs {
+    font-size: 0.875rem; 
+    color: #4b5563;
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+/* --- SECCIÓN DE ESTRELLAS --- */
+.stars-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para los iconos SVG de las estrellas (Tamaño fijo) */
+.star-icon {
+    width: 1rem;   /* 16px */
+    height: 1rem;  /* 16px */
+    display: inline-block;
+    margin-right: 0.125rem; 
+    fill: currentColor; 
+}
+
+/* Colores de las estrellas */
+.star-full {
+    color: #fbbf24; /* Amarillo */
+}
+.star-half {
+    color: #fbbf24; 
+}
+.star-empty {
+    color: #d1d5db; /* Gris claro */
+}
+
+.rating-text {
+    margin-left: 0.5rem; 
+    font-size: 0.875rem; 
+    color: #4b5563; 
+}
+
+/* --- SECCIÓN DE BOTONES --- */
+.card-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-spec, .btn-add {
+    font-size: 0.75rem; 
+    padding: 0.25rem 0.75rem; 
+    border-radius: 0.5rem; 
+    transition: background-color 0.15s;
+    cursor: pointer;
+}
+
+.btn-spec {
+    border: 1px solid #e5e7eb; 
+    color: #4b5563; 
+    background-color: white;
+}
+
+.btn-spec:hover {
+    background-color: #f9fafb;
+}
+
+.btn-add {
+    background-color: #4f46e5; /* Índigo */
+    color: white;
+    border: none;
+}
+
+.btn-add:hover {
+    background-color: #4338ca; 
+}
+
+/* --- SECCIÓN DE FOOTER --- */
+.card-footer {
+    font-size: 0.75rem; 
+    color: #6b7280; 
+    padding: 1rem;
+    border-top: 1px solid #f3f4f6; 
+    text-align: right;
 }
