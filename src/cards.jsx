@@ -6,7 +6,7 @@ import './App.css'
 // =================================================================
 // 1. DATA: const games 
 // =================================================================
-const games = [
+export const games = [
     {
         id: 1,
         title: "Eclipse: Shadow Ops",
