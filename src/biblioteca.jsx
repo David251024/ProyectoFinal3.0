@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// Importamos los datos de juegos (asumiendo que están en cards.jsx)
-// Si los datos están en otro lugar, ajusta la importación
-import { games } from './cards';
-
-const BibliotecaJuegos = () => {
+const BibliotecaJuegos = ({ juegos = [], onEditarJuego }) => {
   const [filtroGenero, setFiltroGenero] = useState('');
   const [filtroPlatforma, setFiltroPlatforma] = useState('');
   const [ordenarPor, setOrdenarPor] = useState('titulo');
 
   // Extraer géneros y plataformas únicas para los filtros
-  const generos = [...new Set(games.map(game => game.genre))];
-  const plataformas = [...new Set(games.map(game => game.platform))];
+  const generos = [...new Set(juegos.map(game => game.genre))];
+  const plataformas = [...new Set(juegos.map(game => game.platform))];
 
   // Filtrar juegos según los criterios seleccionados
-  const juegosFiltrados = games
+  const juegosFiltrados = juegos
     .filter(game => filtroGenero ? game.genre.includes(filtroGenero) : true)
     .filter(game => filtroPlatforma ? game.platform.includes(filtroPlatforma) : true)
     .sort((a, b) => {
@@ -82,6 +78,14 @@ const BibliotecaJuegos = () => {
               <div className="rating">
                 <span>★</span> {game.rating.toFixed(1)}
               </div>
+              {onEditarJuego && (
+                <button 
+                  className="btn-editar"
+                  onClick={() => onEditarJuego(game)}
+                >
+                  Editar
+                </button>
+              )}
             </div>
           </div>
         ))}
